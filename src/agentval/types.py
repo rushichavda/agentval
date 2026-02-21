@@ -1,4 +1,4 @@
-"""Core data models for AgentProbe traces."""
+"""Core data models for AgentVal traces."""
 
 from __future__ import annotations
 

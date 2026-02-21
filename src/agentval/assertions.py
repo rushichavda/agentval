@@ -1,6 +1,6 @@
 """Assertion library for testing agent traces.
 
-This is the core of AgentProbe. Every function raises AssertionError
+This is the core of AgentVal. Every function raises AssertionError
 with a clear message on failure, making them work naturally with pytest.
 """
 

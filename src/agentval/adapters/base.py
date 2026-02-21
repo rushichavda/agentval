@@ -13,7 +13,7 @@ class BaseAdapter(ABC):
     """Base class for framework adapters.
 
     Adapters translate framework-specific execution data into
-    AgentProbe's Trace format. Implement this to add support
+    AgentVal's Trace format. Implement this to add support
     for a new agent framework.
     """
 
@@ -32,7 +32,7 @@ class BaseAdapter(ABC):
 
     @abstractmethod
     def parse_trace(self, raw_data: Any) -> Trace:
-        """Parse framework-specific trace data into an AgentProbe Trace.
+        """Parse framework-specific trace data into an AgentVal Trace.
 
         Use this when you already have trace data (e.g., from logs or
         an observability platform) and want to convert it.

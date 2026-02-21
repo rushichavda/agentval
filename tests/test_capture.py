@@ -1,7 +1,7 @@
 """Tests for trace capture utilities."""
 
-import agentprobe as ap
-from agentprobe import StepType
+import agentval as ap
+from agentval import StepType
 
 
 class TestCapture:

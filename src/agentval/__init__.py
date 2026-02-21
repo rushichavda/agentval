@@ -1,4 +1,4 @@
-"""AgentProbe - Testing framework for multi-step, multi-agent AI workflows.
+"""AgentVal - Testing framework for multi-step, multi-agent AI workflows.
 
 Test agent behavior, not just outputs.
 """

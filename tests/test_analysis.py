@@ -1,6 +1,6 @@
 """Tests for root cause analysis."""
 
-from agentprobe import Step, StepStatus, StepType, Trace, analyze
+from agentval import Step, StepStatus, StepType, Trace, analyze
 
 
 class TestAnalyze:

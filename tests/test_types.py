@@ -3,7 +3,7 @@
 import tempfile
 from pathlib import Path
 
-from agentprobe import Step, StepStatus, StepType, Trace
+from agentval import Step, StepStatus, StepType, Trace
 
 
 class TestStep:

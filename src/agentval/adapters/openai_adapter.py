@@ -3,7 +3,7 @@
 Captures traces from OpenAI's agent framework by hooking into
 the Runner's event stream.
 
-Requires: pip install agentprobe[openai]
+Requires: pip install agentval[openai]
 """
 
 from __future__ import annotations
@@ -18,10 +18,10 @@ from .base import BaseAdapter
 class OpenAIAgentsAdapter(BaseAdapter):
     """Adapter for the OpenAI Agents SDK.
 
-    Converts OpenAI agent run results into AgentProbe traces.
+    Converts OpenAI agent run results into AgentVal traces.
 
     Usage:
-        from agentprobe.adapters.openai_adapter import OpenAIAgentsAdapter
+        from agentval.adapters.openai_adapter import OpenAIAgentsAdapter
         from agents import Agent, Runner
 
         adapter = OpenAIAgentsAdapter()

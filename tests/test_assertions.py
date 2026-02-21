@@ -2,8 +2,8 @@
 
 import pytest
 
-import agentprobe as ap
-from agentprobe import Step, StepType, Trace
+import agentval as ap
+from agentval import Step, StepType, Trace
 
 
 class TestToolCalled:

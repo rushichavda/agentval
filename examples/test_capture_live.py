@@ -6,7 +6,7 @@ traces from your own agent code without any framework.
 Run with: pytest examples/test_capture_live.py -v
 """
 
-import agentprobe as ap
+import agentval as ap
 
 
 # --- Simulated agent tools ---

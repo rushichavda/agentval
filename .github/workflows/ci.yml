@@ -31,7 +31,7 @@ jobs:
         run: ruff check src/ tests/
 
       - name: Type check
-        run: mypy src/agentprobe/ --ignore-missing-imports
+        run: mypy src/agentval/ --ignore-missing-imports
 
       - name: Run tests
         run: pytest tests/ -v

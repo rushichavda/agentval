@@ -58,7 +58,7 @@ class AnalysisReport:
         return len(self.root_causes) > 0
 
     def __str__(self) -> str:
-        lines = [f"AgentProbe Analysis: {self.trace.name or self.trace.trace_id}"]
+        lines = [f"AgentVal Analysis: {self.trace.name or self.trace.trace_id}"]
         lines.append(f"Steps: {len(self.trace)} | Failures: {len(self.root_causes)}")
         lines.append("-" * 60)
 

@@ -1,12 +1,12 @@
-# Contributing to AgentProbe
+# Contributing to AgentVal
 
 Thanks for your interest in contributing. This guide will help you get started.
 
 ## Development Setup
 
 ```bash
-git clone https://github.com/rushichavda/agentprobe.git
-cd agentprobe
+git clone https://github.com/rushichavda/agentval.git
+cd agentval
 uv venv .venv
 source .venv/bin/activate
 uv pip install -e ".[dev]"
@@ -73,8 +73,8 @@ test: add edge cases for root cause analysis
 
 ## Adding a Framework Adapter
 
-1. Create `src/agentprobe/adapters/your_framework.py`
-2. Extend `BaseAdapter` from `agentprobe.adapters.base`
+1. Create `src/agentval/adapters/your_framework.py`
+2. Extend `BaseAdapter` from `agentval.adapters.base`
 3. Implement `capture()` and `parse_trace()`
 4. Add tests in `tests/test_adapters_your_framework.py`
 5. Add an optional dependency in `pyproject.toml`

@@ -1,4 +1,4 @@
-"""pytest plugin for AgentProbe.
+"""pytest plugin for AgentVal.
 
 Auto-registered via pyproject.toml entry point.
 Provides fixtures, custom markers, and trace-aware test output.
@@ -18,7 +18,7 @@ from .types import Trace
 def pytest_configure(config: Any) -> None:
     config.addinivalue_line(
         "markers",
-        "agentprobe: mark a test as an AgentProbe agent behavior test",
+        "agentval: mark a test as an AgentVal agent behavior test",
     )
 
 
@@ -61,7 +61,7 @@ def analyze_trace():
 
 
 def pytest_terminal_summary(terminalreporter: Any, exitstatus: int, config: Any) -> None:
-    """Add AgentProbe summary to pytest output."""
+    """Add AgentVal summary to pytest output."""
     reports = terminalreporter.getreports("failed")
     agent_failures = []
 
@@ -70,5 +70,5 @@ def pytest_terminal_summary(terminalreporter: Any, exitstatus: int, config: Any)
             agent_failures.append(report)
 
     if agent_failures:
-        terminalreporter.write_sep("=", "AgentProbe Failures")
+        terminalreporter.write_sep("=", "AgentVal Failures")
         terminalreporter.write_line(f"{len(agent_failures)} agent behavior test(s) failed")

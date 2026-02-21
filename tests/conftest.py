@@ -2,7 +2,7 @@
 
 import pytest
 
-from agentprobe import Step, StepStatus, StepType, Trace
+from agentval import Step, StepStatus, StepType, Trace
 
 
 @pytest.fixture

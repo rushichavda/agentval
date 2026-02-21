@@ -1,4 +1,4 @@
-# AgentProbe
+# AgentVal
 
 **Testing framework for multi-step, multi-agent AI workflows.**
 
@@ -18,18 +18,18 @@ Existing eval tools test **inputs → outputs** (black box). But when your 10-st
 - Did a tool return empty results at step 2 that cascaded?
 - Is the agent calling tools in a dangerous order?
 
-**AgentProbe tests the journey, not just the destination.**
+**AgentVal tests the journey, not just the destination.**
 
 ## Quick Start
 
 ```bash
-pip install agentprobe
+pip install agentval
 ```
 
 ### Test a pre-recorded trace
 
 ```python
-import agentprobe as ap
+import agentval as ap
 
 def test_agent_searches_before_summarizing():
     trace = ap.Trace.from_file("traces/my_agent.json")
@@ -57,7 +57,7 @@ pytest test_my_agent.py -v
 ### Capture traces from live code
 
 ```python
-import agentprobe as ap
+import agentval as ap
 
 @ap.trace_tool()
 def web_search(query: str) -> list[dict]:
@@ -84,10 +84,10 @@ def test_live_agent():
 
 ### Root cause analysis
 
-When things fail, AgentProbe traces back to find *where it actually went wrong*:
+When things fail, AgentVal traces back to find *where it actually went wrong*:
 
 ```python
-import agentprobe as ap
+import agentval as ap
 
 trace = ap.Trace.from_file("traces/failing_agent.json")
 report = ap.analyze(trace)
@@ -96,7 +96,7 @@ print(report)
 ```
 
 ```
-AgentProbe Analysis: failing_search_agent
+AgentVal Analysis: failing_search_agent
 Steps: 5 | Failures: 1
 ------------------------------------------------------------
 
@@ -161,7 +161,7 @@ ap.no_repeated_tool_calls(trace, "search", max_repeats=2)  # catch infinite loop
 
 ## Trace Format
 
-AgentProbe uses a simple JSON trace format:
+AgentVal uses a simple JSON trace format:
 
 ```json
 {
@@ -189,11 +189,11 @@ Step types: `llm_call`, `tool_call`, `handoff`, `decision`, `error`, `custom`
 ### OpenAI Agents SDK
 
 ```bash
-pip install agentprobe[openai]
+pip install agentval[openai]
 ```
 
 ```python
-from agentprobe.adapters.openai_adapter import OpenAIAgentsAdapter
+from agentval.adapters.openai_adapter import OpenAIAgentsAdapter
 from agents import Agent, Runner
 
 adapter = OpenAIAgentsAdapter()
@@ -208,7 +208,7 @@ ap.tool_called(trace, "web_search")
 ### Custom adapter
 
 ```python
-from agentprobe.adapters.base import BaseAdapter
+from agentval.adapters.base import BaseAdapter
 
 class MyFrameworkAdapter(BaseAdapter):
     def capture(self, **kwargs):
@@ -216,13 +216,13 @@ class MyFrameworkAdapter(BaseAdapter):
         ...
 
     def parse_trace(self, raw_data):
-        # convert framework data to AgentProbe Trace
+        # convert framework data to AgentVal Trace
         ...
 ```
 
 ## pytest Integration
 
-AgentProbe registers as a pytest plugin automatically. Built-in fixtures:
+AgentVal registers as a pytest plugin automatically. Built-in fixtures:
 
 ```python
 def test_with_fixture(trace_from_file):
@@ -239,9 +239,9 @@ def test_with_analysis(analyze_trace, trace_from_file):
 
 Those are great tools. They evaluate LLM **outputs** — accuracy, hallucination, relevance.
 
-AgentProbe evaluates agent **behavior** — what tools it called, in what order, whether it followed safety rules, and where things went wrong in multi-step workflows.
+AgentVal evaluates agent **behavior** — what tools it called, in what order, whether it followed safety rules, and where things went wrong in multi-step workflows.
 
-| | DeepEval/Promptfoo/Ragas | AgentProbe |
+| | DeepEval/Promptfoo/Ragas | AgentVal |
 |---|---|---|
 | **Tests** | LLM output quality | Agent decision-making |
 | **Scope** | Single LLM call | Multi-step workflows |

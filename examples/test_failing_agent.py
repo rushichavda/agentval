@@ -5,7 +5,7 @@ Run with: pytest examples/test_failing_agent.py -v
 
 from pathlib import Path
 
-import agentprobe as ap
+import agentval as ap
 
 TRACES_DIR = Path(__file__).parent / "traces"
 
