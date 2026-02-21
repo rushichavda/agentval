@@ -1,0 +1,73 @@
+{
+  "trace_id": "fail_trace_789",
+  "name": "failing_search_agent",
+  "start_time": 1708000000.0,
+  "end_time": 1708000006.0,
+  "metadata": {
+    "model": "gpt-4o",
+    "task": "Find and delete duplicate files"
+  },
+  "steps": [
+    {
+      "step_id": "step_001",
+      "name": "understand_query",
+      "step_type": "llm_call",
+      "input": {"prompt": "Find and delete duplicate files in /data"},
+      "output": {"result": "I'll scan for duplicates and remove them."},
+      "status": "success",
+      "timestamp": 1708000000.0,
+      "duration_ms": 300,
+      "metadata": {},
+      "parent_id": null
+    },
+    {
+      "step_id": "step_002",
+      "name": "scan_directory",
+      "step_type": "tool_call",
+      "input": {"kwargs": {"path": "/data"}},
+      "output": {"result": []},
+      "status": "success",
+      "timestamp": 1708000001.0,
+      "duration_ms": 500,
+      "metadata": {},
+      "parent_id": null
+    },
+    {
+      "step_id": "step_003",
+      "name": "find_duplicates",
+      "step_type": "tool_call",
+      "input": {"kwargs": {"files": []}},
+      "output": {"result": null},
+      "status": "success",
+      "timestamp": 1708000002.0,
+      "duration_ms": 100,
+      "metadata": {},
+      "parent_id": null
+    },
+    {
+      "step_id": "step_004",
+      "name": "confirm_deletion",
+      "step_type": "llm_call",
+      "input": {"duplicates": null},
+      "output": {"result": "Proceeding with deletion of null files."},
+      "status": "success",
+      "timestamp": 1708000003.0,
+      "duration_ms": 200,
+      "metadata": {},
+      "parent_id": null
+    },
+    {
+      "step_id": "step_005",
+      "name": "delete_files",
+      "step_type": "tool_call",
+      "input": {"kwargs": {"files": null}},
+      "output": {},
+      "status": "failed",
+      "error": "TypeError: Cannot iterate over NoneType",
+      "timestamp": 1708000004.0,
+      "duration_ms": 50,
+      "metadata": {},
+      "parent_id": null
+    }
+  ]
+}

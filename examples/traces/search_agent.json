@@ -1,0 +1,72 @@
+{
+  "trace_id": "abc123def456",
+  "name": "search_and_summarize_agent",
+  "start_time": 1708000000.0,
+  "end_time": 1708000005.2,
+  "metadata": {
+    "model": "gpt-4o",
+    "task": "Research and summarize Python async patterns"
+  },
+  "steps": [
+    {
+      "step_id": "step_001",
+      "name": "understand_query",
+      "step_type": "llm_call",
+      "input": {"prompt": "Research and summarize Python async patterns"},
+      "output": {"result": "I'll search for Python async patterns and provide a summary."},
+      "status": "success",
+      "timestamp": 1708000000.0,
+      "duration_ms": 450,
+      "metadata": {"tokens": 120},
+      "parent_id": null
+    },
+    {
+      "step_id": "step_002",
+      "name": "web_search",
+      "step_type": "tool_call",
+      "input": {"kwargs": {"query": "Python async await patterns best practices 2024"}},
+      "output": {"result": [{"title": "Python Async Patterns", "url": "https://example.com/1"}, {"title": "Advanced Asyncio", "url": "https://example.com/2"}]},
+      "status": "success",
+      "timestamp": 1708000001.0,
+      "duration_ms": 1200,
+      "metadata": {"source": "web"},
+      "parent_id": null
+    },
+    {
+      "step_id": "step_003",
+      "name": "read_page",
+      "step_type": "tool_call",
+      "input": {"kwargs": {"url": "https://example.com/1"}},
+      "output": {"result": "Python async/await enables concurrent I/O operations. Key patterns include: gather for parallel tasks, semaphores for rate limiting, and async context managers for resource management."},
+      "status": "success",
+      "timestamp": 1708000002.5,
+      "duration_ms": 800,
+      "metadata": {"source": "web"},
+      "parent_id": null
+    },
+    {
+      "step_id": "step_004",
+      "name": "read_page",
+      "step_type": "tool_call",
+      "input": {"kwargs": {"url": "https://example.com/2"}},
+      "output": {"result": "Advanced asyncio patterns include task groups, exception handling with TaskGroup, and structured concurrency principles."},
+      "status": "success",
+      "timestamp": 1708000003.5,
+      "duration_ms": 750,
+      "metadata": {"source": "web"},
+      "parent_id": null
+    },
+    {
+      "step_id": "step_005",
+      "name": "summarize",
+      "step_type": "llm_call",
+      "input": {"context": "Combined research from 2 sources"},
+      "output": {"result": "Python async patterns include: 1) asyncio.gather for parallel execution, 2) Semaphores for rate limiting, 3) Async context managers, 4) TaskGroup for structured concurrency. These enable efficient I/O-bound operations without threads."},
+      "status": "success",
+      "timestamp": 1708000004.5,
+      "duration_ms": 600,
+      "metadata": {"tokens": 250},
+      "parent_id": null
+    }
+  ]
+}
